@@ -1,0 +1,122 @@
+(* *START* program *)
+(* *NAMESPACE* MotionDataHandler.Script.Parse *)
+(* *USING* System *)
+(* *USING* System.Text *)
+(* *USING* System.IO *)
+(* *USING* System.Linq *)
+(* *USING* System.Collections.Generic *)
+(* *OUTPUTCLASS* ScriptParser *)
+(* *INPUTCLASS* LexicalElement *)
+(* *INPUTCLASSTYPE* struct *)
+(* *INPUTENUM* LexType *)
+(* *PARSEMETHODPREFIX* parse *)
+(* *PARSEMETHODACCESSIBILITY* protected *)
+(* *RETURNMETHODPREFIX* Return *)
+(* *RETURNMETHODACCESSIBILITY* protected *)
+(* *RETURNCLASSSUFFIX* SyntaxElement *)
+(* *RETURNCLASSTYPE* class *)
+(* *TERMINAL* ( OpenPar *)
+(* *TERMINAL* ) ClosePar *)
+(* *TERMINAL* { OpenBraces *)
+(* *TERMINAL* } CloseBraces *)
+(* *TERMINAL* [ OpenBracket *)
+(* *TERMINAL* ] CloseBracket *)
+(* *TERMINAL* | VSlash *)
+(* *TERMINAL* , Comma *)
+(* *TERMINAL*             <= Le *)
+(* *TERMINAL*             < Lt *)
+(* *TERMINAL*             >= Ge *)
+(* *TERMINAL*             > Gt *)
+(* *TERMINAL*             != Ne *)
+(* *TERMINAL*             == Eq *)
+(* *TERMINAL*             ! Not *)
+(* *TERMINAL*             && And *)
+(* *TERMINAL*             || Or *)
+(* *TERMINAL*             += PlusEqual *)
+(* *TERMINAL*             -= MinusEqual *)
+(* *TERMINAL*             *= CrossEqual *)
+(* *TERMINAL*             /= SlashEqual *)
+(* *TERMINAL*             %= PercentEqual *)
+(* *TERMINAL*             = Equal *)
+(* *TERMINAL*             ++ PlusPlus *)
+(* *TERMINAL*             -- MinusMinus *)
+(* *TERMINAL*             + Plus *)
+(* *TERMINAL*             , Comma *)
+(* *TERMINAL*             - Minus *)
+(* *TERMINAL*             * Cross *)
+(* *TERMINAL*             / Slash *)
+(* *TERMINAL*             % Percent *)
+(* *TERMINAL*             ? Question *)
+(* *TERMINAL*             : Colon *)
+(* *TERMINAL*             ; Semicolon *)
+(* *TERMINAL*             . Dot *)
+
+        (* 全体は文の塊 *)
+        program = { statement } ;
+        (* 文は制御構文か複数式か宣言． *)
+        (* *RETURNS* statement *)
+        statement = foreach | for | while | do | if | block | control , ';' | [ multi_expression ] , ';' | declare , ';' ;
+        (* リストの列挙 *)
+        foreach = 'foreach', '(', [ 'var' ] , identifier, 'in', expression, ')', statement ;
+        (* 普通のfor文，while文，do文，if文 *)
+        (* *RETURNS* do DoWhile *)
+        (* *RETURNS* while DoWhile *)
+        for = 'for', '(', [ expression | declare ], ';', [ expression ], ';', [ expression ], ')', statement ;
+        while = 'while', '(', expression, ')', statement ;
+        do = 'do', statement, 'while', '(', expression, ')', ';' ;
+        if = 'if', '(', expression, ')', statement, [ 'else', statement ]  ;
+        (* 波括弧で括られた文の塊 *)
+        (* *RETURNS* block *)
+        block = '{', { statement }, '}' ;
+        (* 制御文 *)
+        control = 'break' | 'continue' | 'return', [expression] ;
+        (* 複数式はコンマ区切りの式 *)
+        multi_expression = expression, {',', expression} ;
+        (* 宣言はvarで始まる．コンマ区切り可 *)
+        (* *RETURNS* declare MultiDeclare *)
+        declare = ('readonly', [ 'var' ] | 'var' ), identifier, ['=', expression], {',', identifier, ['=', expression] } ;
+
+        (* 式は普通 *)
+        expression = substitute ;
+        (* *RETURNS* substitute expression *)
+        substitute = left_value, [ ('+=' | '-=' | '*=' | '/=' | '%=' | '=' ), substitute] ;
+        (* 左辺値はとりあえず式だと思って処理し，変数アクセスできる要素が返ってきたら有効だとする． *)
+        (* *RETURNS* left_value expression *)
+        left_value = ternary ;        
+        (* // 普通の演算子 *)
+        (* *RETURNS* ternary expression *)
+        ternary = or, [ '?', ternary, ':', ternary] ;
+        (* *RETURNS* or expression *)
+        (* *RETURNS* and expression *)
+        (* *RETURNS* cmp expression *)
+        (* *RETURNS* add expression *)
+        (* *RETURNS* mul expression *)
+        (* *RETURNS* unary expression *)
+
+        or = and, {'||', and} ;
+        and = cmp, {'&&', cmp} ;
+        cmp = add, [ ('<=' | '>=' | '==' | '!=' | '<' | '>' ), add ] ;
+        add = mul, {('+' | '-'), mul} ;
+        mul = unary, {('*' | '/' | '%'), unary} ;
+	    unary = {'!' | '+' | '-'}, inc ;
+        (* プレインクリメント *)
+        (* *RETURNS* inc expression *)
+        inc = mod_property| ( '++' | '--' ), mod_property | mod_property, ( '++' | '--' );
+        (* 修正子付き値．関数呼び出し，配列アクセス，ポストインクリメント，オブジェクト指向風ドットによる関数呼び出し *)
+        (* ポストインクリメントは左辺値じゃないとエラー．ドット呼び出しはドットの左の値が第一引数になるだけ *)
+        (* *RETURNS* mod_property expression *)
+        mod_property = property, { arguments |  indexing |  dot_invocation }   ;
+        (* *RETURNS* indexing expression *)
+        indexing = '[', expression, ']';
+        dot_invocation = '.', identifier, arguments;
+        arguments = '(', [ expression, {',', expression} ], ')' ;
+        (* 値 *)
+        (* *RETURNS* property expression *)
+        property = "Number" | "String" | "true" | "false" | 'null' | identifier | list | func | parenthesis ;
+	    parenthesis = '(', multi_expression, ')' ;
+        identifier = "Identifier" ;
+        (* 配列は波かっこ．blockと同じ所には置けない *)
+        list = '{', [expression, {',', expression} ], '}' ;
+        (* 関数オブジェクトを返す．varはあってもなくてもいい．paramsはC#風で，引数はそこで終わり． *)
+        func = 'func', '(', [ ['params'], ['var'], identifier, { ',', ['params'], ['var'], identifier } ], ')',  block  ;
+        (* *RETURNS* func expression *)

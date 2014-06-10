@@ -1,0 +1,207 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MotionDataHandler.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Menu_RenameLabelHere" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ラベルを変更</Value>
+    </Setting>
+    <Setting Name="Menu_SetLabelHere" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ここにラベルを設定</Value>
+    </Setting>
+    <Setting Name="Menu_LoadFromFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ファイルから読み込む</Value>
+    </Setting>
+    <Setting Name="Menu_AddLabelBorderHere" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ここにラベル境界を追加</Value>
+    </Setting>
+    <Setting Name="Motion_TransparentChecked" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Msg_InvalidFirstArgument" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">第一引数が不正です</Value>
+    </Setting>
+    <Setting Name="Msg_SpecifyBoolean" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">真理値を指定してください</Value>
+    </Setting>
+    <Setting Name="Msg_SpecifyNumber" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">数値を指定してください</Value>
+    </Setting>
+    <Setting Name="Msg_ValueOutOfRange" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">値が範囲外です</Value>
+    </Setting>
+    <Setting Name="Msg_SpecifyOneSequenceName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">シーケンス名を一つ指定してください</Value>
+    </Setting>
+    <Setting Name="Msg_SequenceNotFound" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">シーケンスが見つかりません</Value>
+    </Setting>
+    <Setting Name="Msg_IndexOutOfRange" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">インデックスが範囲外です</Value>
+    </Setting>
+    <Setting Name="Msg_SpecifyInteger" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">整数値を指定してください</Value>
+    </Setting>
+    <Setting Name="Msg_SpecifyIndexOfColumnOrColumnName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">カラムのインデックスか，カラム名を指定してください</Value>
+    </Setting>
+    <Setting Name="Msg_ColumnNameNotFound" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">カラム名が見つかりません</Value>
+    </Setting>
+    <Setting Name="Msg_LabelNameNotFound" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ラベル名が見つかりません</Value>
+    </Setting>
+    <Setting Name="Msg_InvalidNthArgument" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">{0}番目の引数が不正です</Value>
+    </Setting>
+    <Setting Name="Motion_DefaultBackgroundColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Blue</Value>
+    </Setting>
+    <Setting Name="Script_HistoryCapacity" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">200</Value>
+    </Setting>
+    <Setting Name="Menu_File" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ファイル(&amp;F)</Value>
+    </Setting>
+    <Setting Name="Menu_OpenTimeSeriesValues" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">時系列データを開く</Value>
+    </Setting>
+    <Setting Name="Menu_SaveTimeSeriesValues" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">時系列データを保存</Value>
+    </Setting>
+    <Setting Name="Menu_OpenFromFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ファイルから開く(&amp;O)</Value>
+    </Setting>
+    <Setting Name="Menu_SaveLabelData" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ラベルデータを保存</Value>
+    </Setting>
+    <Setting Name="Menu_OpenLabelData" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ラベルデータを開く</Value>
+    </Setting>
+    <Setting Name="Menu_OpenViewPanel" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ビューパネルを開く</Value>
+    </Setting>
+    <Setting Name="Menu_SaveViewPanel" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ビューパネルを保存</Value>
+    </Setting>
+    <Setting Name="Menu_LabelingBorderSettings" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ラベル境界の設定(&amp;B)</Value>
+    </Setting>
+    <Setting Name="Menu_RemoveLabelBorderHere" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ここのラベル境界を削除(&amp;R)</Value>
+    </Setting>
+    <Setting Name="Menu_BorderPositionSettings" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">境界位置の設定(&amp;P)</Value>
+    </Setting>
+    <Setting Name="Menu_LabelNameSettings" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ラベル名の設定(&amp;N)</Value>
+    </Setting>
+    <Setting Name="Menu_ReApplyOperation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">直前の処理の再適用(&amp;A)</Value>
+    </Setting>
+    <Setting Name="Menu_OperationTimeSeriesValues" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">時系列データの処理(&amp;T)</Value>
+    </Setting>
+    <Setting Name="Menu_OperationLabelSequence" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ラベル列の処理(&amp;L)</Value>
+    </Setting>
+    <Setting Name="Menu_StackGraphMode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">積み重ねグラフモード(&amp;S)</Value>
+    </Setting>
+    <Setting Name="Menu_ResetScale" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">縮尺をリセット(&amp;R)</Value>
+    </Setting>
+    <Setting Name="Menu_HideSequence" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">列を隠す(&amp;H)</Value>
+    </Setting>
+    <Setting Name="Menu_CloseThisViewPanel" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">このビューパネルを閉じる(&amp;C)</Value>
+    </Setting>
+    <Setting Name="Menu_ZoomSelectedRange" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">選択範囲を拡大(&amp;Z)</Value>
+    </Setting>
+    <Setting Name="Menu_SelectVisibleRange" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">表示領域を全選択(&amp;V)</Value>
+    </Setting>
+    <Setting Name="Menu_InputSelectRange" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">選択範囲を入力(&amp;I)</Value>
+    </Setting>
+    <Setting Name="Menu_ShowFrameIndex" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">フレームインデックスを表示(&amp;F)</Value>
+    </Setting>
+    <Setting Name="Menu_ReView" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">再表示</Value>
+    </Setting>
+    <Setting Name="Menu_ReApply" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">再適用</Value>
+    </Setting>
+    <Setting Name="Menu_UnzoomSelectedRange" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">選択範囲へ縮小(&amp;U)</Value>
+    </Setting>
+    <Setting Name="Menu_ClipSelectedRange" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">選択範囲を切り抜き(&amp;C)</Value>
+    </Setting>
+    <Setting Name="Msg_ObjectNameCannotBeNull" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">オブジェクト名にnullを指定できません</Value>
+    </Setting>
+    <Setting Name="Msg_ObjectNotFound" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">オブジェクトが見つかりません</Value>
+    </Setting>
+    <Setting Name="Msg_InvalidTargetObjectSpecified" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">処理の対象とならないオブジェクトが指定されました</Value>
+    </Setting>
+    <Setting Name="Msg_ImproperObjectSelection" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">オブジェクトの選択が不適当です</Value>
+    </Setting>
+    <Setting Name="Msg_InvalidNumberOfArguments" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">引数の数が不正です</Value>
+    </Setting>
+    <Setting Name="Msg_NumberOfArgumentsRequired" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">{0}個の引数が必要です．</Value>
+    </Setting>
+    <Setting Name="Msg_InvalidArgument" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">引数が不正です</Value>
+    </Setting>
+    <Setting Name="Msg_CreateObjectLengthMismatch" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">追加されたオブジェクト情報の数と作成されるオブジェクトの数が一致しません</Value>
+    </Setting>
+    <Setting Name="Msg_PleaseSelectObject" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">オブジェクトを選択してください</Value>
+    </Setting>
+    <Setting Name="Msg_CannotSpecifyNull" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">nullを指定できません</Value>
+    </Setting>
+    <Setting Name="Msg_PleaseSelectPointObject" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">点オブジェクトを選択してください</Value>
+    </Setting>
+    <Setting Name="DialogMotionOperation_IgnoreForm" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Label_DoNotShowDialogIfNoSettings" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">設定がない場合にダイアログを表示しない</Value>
+    </Setting>
+    <Setting Name="Label_Source" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ソース</Value>
+    </Setting>
+    <Setting Name="Msg_PleaseSelectLineObject" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">線分オブジェクトを選択してください</Value>
+    </Setting>
+    <Setting Name="Menu_AddLabelBorderUpHere" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ラベル境界を追加(ここまで)</Value>
+    </Setting>
+    <Setting Name="CurrentTimeTabSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="Menu_SetLabelWithName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ラベルを設定 「{0}」</Value>
+    </Setting>
+    <Setting Name="Msg_FailedToOperate" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">処理に失敗しました</Value>
+    </Setting>
+    <Setting Name="Motion_MarginSize" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">32</Value>
+    </Setting>
+    <Setting Name="Msg_FileModifiedAskSave" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ファイルが変更されています。保存しますか?</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,763 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Plugin</name>
+    </assembly>
+    <members>
+        <member name="T:Plugin.LanguageOption">
+            <summary>
+            フォーム内のラベルに関する言語設定を保持します。
+            </summary>
+        </member>
+        <member name="T:Plugin.TextData">
+            <summary>
+            一つのラベルに対する各言語のテキストを保持します。
+            </summary>
+        </member>
+        <member name="T:Plugin.LanguageSettings">
+            <summary>
+            フォーム内のラベルに関する言語情報の一覧を保持します。
+            </summary>
+        </member>
+        <member name="M:Plugin.LanguageSettings.#ctor">
+            <summary>
+            TextHashTableオブジェクトを作成します。
+            </summary>
+        </member>
+        <member name="M:Plugin.LanguageSettings.LoadFromFile(System.String)">
+            <summary>
+            指定されたファイルから言語データセットを取得します
+            </summary>
+            <param name="filename">読み込まれる完全なファイルパス</param>
+            <returns>ファイルが正しく読み込まれました</returns>
+        </member>
+        <member name="M:Plugin.LanguageSettings.LoadFromFile(System.IO.Stream)">
+            <summary>
+            指定されたファイルから言語データセットを取得します
+            </summary>
+            <param name="filename">読み込まれるストリーム</param>
+            <returns>ファイルが正しく読み込まれました</returns>
+        </member>
+        <member name="M:Plugin.LanguageSettings.GetText(System.String,System.String)">
+            <summary>
+            指定された言語における指定されたラベルのテキストを返します。
+            </summary>
+            <param name="name">ラベルを示すID名</param>
+            <param name="language">要求する言語設定</param>
+            <returns>対応するテキスト</returns>
+        </member>
+        <member name="F:Plugin.DataRow.backupTitle">
+            <summary>
+            TitleBoxに使用不可文字が使用されたときの修正用バックアップ
+            </summary>
+        </member>
+        <member name="F:Plugin.DataRow._viewNumber">
+            <summary>
+            FieldPanelへの表示順番。最小は0
+            </summary>
+        </member>
+        <member name="M:Plugin.DataRow.#ctor(Plugin.IPluginHost)">
+            <summary>
+            !!!!注意!!!!!DataRowのインスタンスを生成する際には
+            必ず親フォームのDataRowsにAddまたはInsertすること！
+            </summary>
+            <param name="form">親フォーム</param>
+        </member>
+        <member name="M:Plugin.DataRow.ReMapLabels">
+            <summary>
+            ラベルを再配置します。
+            </summary>
+        </member>
+        <member name="M:Plugin.DataRow.Dispose">
+            <summary>
+            iCorpusStudio.DataRowによって使用されているすべてのリソースを解放します。
+            </summary>
+        </member>
+        <member name="M:Plugin.DataRow.UpdateAddValueItems">
+            <summary>
+            コンテキストメニューのadd labelの選択肢を更新します。
+            </summary>
+        </member>
+        <member name="M:Plugin.DataRow.CleanUpLabels">
+            <summary>
+            ラベルの補修を行います
+            </summary>
+        </member>
+        <member name="M:Plugin.DataRow.ReplaceAllLabels(System.String,System.String)">
+            <summary>
+            対象のデータラベル全てに対して置換を行う。
+            </summary>
+            <param name="target">対象となるラベルの値</param>
+            <param name="value">変更後の値</param>
+        </member>
+        <member name="M:Plugin.DataRow.CopyHostContextMenuItem(System.String)">
+            <summary>
+            対象のToolStripMenuItemのコピーを生成して返す
+            </summary>
+            <param name="itemname">コピーしたいItem</param>
+            <returns>コピーしたItem</returns>
+        </member>
+        <member name="M:Plugin.DataRow.SaveToFile(System.String,System.String)">
+            <summary>
+            ラベルのリストをCSV形式で出力します。
+            </summary>
+            <param name="filename">出力先のファイル名</param>
+            <param name="delimiter">区切りに使う記号</param>
+        </member>
+        <member name="M:Plugin.DataRow.LoadFromFile(System.String)">
+            <summary>
+            CSV形式のファイルからラベルのリストを読み込みます。
+            </summary>
+            <param name="filename">読み込むファイル名</param>
+        </member>
+        <member name="M:Plugin.DataRow.LoadFromFile(System.String,System.String)">
+            <summary>
+            CSV形式のファイルからラベルのリストを読み込みます。
+            </summary>
+            <param name="filename">読み込むファイル名</param>
+            <param name="delimiter">区切り文字</param>
+        </member>
+        <member name="M:Plugin.DataRow.LoadFromFile(Plugin.IPluginHost,System.String)">
+            <summary>
+            CSV形式のファイルからラベルのリストを読み込みます。(区切り文字は.csvならカンマ.labなら半角スペース)
+            </summary>
+            <param name="host">読み込み先のAnnotationField</param>
+            <param name="filename">読み込み元ファイル名</param>
+            <returns>ラベルを読み込んだDataRowオブジェクトを返します</returns>
+        </member>
+        <member name="M:Plugin.DataRow.LoadFromFile(Plugin.IPluginHost,System.String,System.String)">
+            <summary>
+            CSV形式のファイルからラベルのリストを読み込みます。
+            </summary>
+            <param name="host">読み込み先のAnnotationField</param>
+            <param name="filename">読み込み元ファイル名</param>
+            <param name="delimiter">区切り文字</param>
+            <returns>ラベルを読み込んだDataRowオブジェクトを返します</returns>
+        </member>
+        <member name="M:Plugin.DataRow.NoiseCancel(System.Collections.Generic.List{System.String},System.Double,System.Boolean)">
+            <summary>
+            ラベルに関して時間方向で閾値以下の物をノイズとみなし、キャンセルします。
+            </summary>
+            <param name="values">対象のラベルの値のリスト</param>
+            <param name="minInterval">閾値(sec)</param>
+            <param name="changeNull">ノイズを空にするか、前後のラベルにするか</param>
+        </member>
+        <member name="P:Plugin.DataRow.ViewNumber">
+            <summary>
+            fieldPanelに表示する順番。最小は0
+            </summary>
+        </member>
+        <member name="P:Plugin.DataRow.FreeLabels">
+            <summary>
+            余っているラベルコントロールが格納されたスタックを取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.DataRow.Focused">
+            <summary>
+            このRowに入力フォーカスがあるかどうかを示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.DataRow.DataLabels">
+            <summary>
+            このRowに含まれるラベルのリストを取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.DataRow.Properties">
+            <summary>
+            このRowのプロパティにリストを取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.DataRow.TitleBottomLocationY">
+            <summary>
+            このRowのtitleTextBoxの下端の座標を取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.DataRow.BaseBottomLocationY">
+            <summary>
+            このRowのbasePanelの下端の座標を取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.DataRow.Title">
+            <summary>
+            DataRowのタイトルを取得または設定します。
+            </summary>
+        </member>
+        <member name="P:Plugin.DataRow.RowHeight">
+            <summary>
+            DataRowの高さを取得または設定します。
+            </summary>
+        </member>
+        <member name="P:Plugin.DataRow.ContextMenuItems">
+            <summary>
+            DataRowのContextMenuに含まれる全ての項目を取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.DataRow.RowPanel">
+            <summary>
+            アノテーション表示を行うパネルを取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.DataRow.TitleTextBox">
+            <summary>
+            DataRowのタイトルを表示するテキストボックスを取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.DataRow.Header">
+            <summary>
+            ヘッダ情報を設定または取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.DataRow.Frames">
+            <summary>
+            ラベルのリストからアノテーションデータを切り出した形で取得します。
+            パターンマッチングに利用
+            </summary>
+        </member>
+        <member name="P:Plugin.DataRow.History">
+            <summary>
+            このDataRowの生成方法を現すHistoryオブジェクトを取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.DataRow.Recordable">
+            <summary>
+            DataRowが記録可能であるかを示す値を設定または取得します。
+            この値がfalseであれば、プロジェクトセーブなどの際に無視されます。
+            </summary>
+        </member>
+        <member name="P:Plugin.DataRow.AddEnabled">
+            <summary>
+            DataRowにラベルを手動で追加可能かを示す値を設定または取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.DataRow.Visible">
+            <summary>
+            このDataRowが表示されるかどうかを示す値を取得します。
+            </summary>
+        </member>
+        <member name="M:Plugin.DataLabel.#ctor(Plugin.IPluginHost,Plugin.DataRow,System.Double,System.Double,System.String,System.Drawing.Color)">
+            <summary>
+            データラベルを1個作成(色指定有)
+            </summary>
+            <param name="argform">親となるAnnotationFieldフォーム</param>
+            <param name="argrow">DataLabelを保持するDataRow</param>
+            <param name="stime">ラベルの開始時間(秒)</param>
+            <param name="etime">ラベルの終了時間(秒)</param>
+            <param name="argvalue">ラベルの値</param>
+            <param name="argcolor">ラベルの色</param>
+        </member>
+        <member name="M:Plugin.DataLabel.#ctor(Plugin.IPluginHost,Plugin.DataRow,System.Double,System.Double)">
+            <summary>
+            データラベルを1個作成(色指定有) stime > etimeの場合無視する
+            </summary>
+            <param name="argform">親となるAnnotationFieldフォーム</param>
+            <param name="argrow">DataLabelを保持するDataRow</param>
+            <param name="stime">ラベルの開始時間(秒)</param>
+            <param name="etime">ラベルの終了時間(秒)</param>
+        </member>
+        <member name="M:Plugin.DataLabel.Dispose">
+            <summary>
+            iCorpusStudio.DataLabelによって使用されているすべてのリソースを解放します。
+            </summary>
+        </member>
+        <member name="M:Plugin.DataLabel.Remap">
+            <summary>
+            ラベルを再配置します。
+            </summary>
+        </member>
+        <member name="M:Plugin.DataLabel.SetEventToTBox">
+            <summary>
+            TextBoxコントロールにDataLabelのイベントを追加します。
+            </summary>
+        </member>
+        <member name="M:Plugin.DataLabel.RemoveEventFromTBox">
+            <summary>
+            TextBoxコントロールからDataLabelのイベントを取り除きます。
+            </summary>
+        </member>
+        <member name="M:Plugin.DataLabel.RemoveTextBoxControl">
+            <summary>
+            TextBoxコントロールをdataRowのスタックに格納します。
+            </summary>
+        </member>
+        <member name="M:Plugin.DataLabel.TextBoxInit">
+            <summary>
+            DataLabel用のtextboxコントロールを生成します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Plugin.DataLabel.CopyHostContextMenuItem(System.String,System.Windows.Forms.ToolStripItemCollection)">
+            <summary>
+            対象のToolStripMenuItemのコピーを生成して返す
+            </summary>
+            <param name="name">コピーしたいItem</param>
+            <param name="items">コピー元のアイテムコレクション</param>
+            <returns>コピーしたItem</returns>
+        </member>
+        <member name="M:Plugin.DataLabel.Focus">
+            <summary>
+            コントロールに入力フォーカスを設定します。
+            </summary>
+        </member>
+        <member name="M:Plugin.DataLabel.CatchError(System.String,System.Exception,System.String[])">
+            <summary>
+            エラー発生時の処理を行います
+            </summary>
+            <param name="component">発生したプロパティ・メソッド</param>
+            <param name="ex">発生した例外</param>
+            <param name="addMes">その他のメッセージ</param>
+        </member>
+        <member name="M:Plugin.DataLabel.MoveTo(Plugin.DataRow)">
+            <summary>
+            DataLabelを別のDataRowへ移動させます。
+            </summary>
+            <param name="toRow"></param>
+        </member>
+        <member name="P:Plugin.DataLabel.StartTime">
+            <summary>
+            ラベルの開始時間を取得または設定
+            </summary>
+        </member>
+        <member name="P:Plugin.DataLabel.EndTime">
+            <summary>
+            ラベルの終了時間を取得または設定
+            </summary>
+        </member>
+        <member name="P:Plugin.DataLabel.Color">
+            <summary>
+            DataLabelの色を取得または設定
+            </summary>
+        </member>
+        <member name="P:Plugin.DataLabel.Value">
+            <summary>
+            DataLabelの値を取得または設定
+            </summary>
+        </member>
+        <member name="P:Plugin.DataLabel.Focused">
+            <summary>
+            このコントロールにフォーカスがあるかどうかを示す値を取得します。
+            </summary>
+        </member>
+        <member name="T:Plugin.IPlugin">
+            <summary>
+            プラグインで実装するインタフェース
+            </summary>
+        </member>
+        <member name="M:Plugin.IPlugin.Run">
+            <summary>
+            プラグインの処理内容
+            </summary>
+        </member>
+        <member name="M:Plugin.IPlugin.ExecuteTemplate(Plugin.History)">
+            <summary>
+            テンプレート実行の処理内容
+            </summary>
+            <param name="history"></param>
+        </member>
+        <member name="P:Plugin.IPlugin.Name">
+            <summary>
+            プラグインの名前
+            </summary>
+        </member>
+        <member name="P:Plugin.IPlugin.Version">
+            <summary>
+            プラグインのバージョン
+            </summary>
+        </member>
+        <member name="P:Plugin.IPlugin.Description">
+            <summary>
+            プラグインの説明
+            </summary>
+        </member>
+        <member name="P:Plugin.IPlugin.Owner">
+            <summary>
+            プラグインのホストとなるAnnotationFieldのインタフェース
+            </summary>
+        </member>
+        <member name="M:Plugin.History.#ctor">
+            <summary>
+            シリアライズ用コンストラクタ。
+            使用しないこと!!
+            </summary>
+        </member>
+        <member name="M:Plugin.History.Remove(Plugin.IPluginHost,System.String)">
+            <summary>
+            DataRowをRemoveする履歴を生成します。
+            </summary>
+            <param name="host"></param>
+            <param name="rowName">削除するRowの名前</param>
+            <returns></returns>
+        </member>
+        <member name="P:Plugin.History.Host">
+            <summary>
+            ホストとなるAnnotationFieldを設定します。
+            !!シリアライズ後は必ず設定すること!!
+            </summary>
+        </member>
+        <member name="M:Plugin.Util.GetCode(System.String)">
+            <summary>
+            文字コードを判別します。
+            </summary>
+            <param name="filename">調べたいファイルのパス</param>
+            <returns>適当と思われるEncodingオブジェクト。
+            判断できなかった時はnull。</returns>
+        </member>
+        <member name="M:Plugin.Util.GetCode(System.Byte[])">
+            <summary>
+            文字コードを判別します
+            </summary>
+            <remarks>
+            Jcode.pmのgetcodeメソッドを移植したものです。
+            Jcode.pm(http://openlab.ring.gr.jp/Jcode/index-j.html)
+            </remarks>
+            <param name="byts">文字コードを調べるデータ</param>
+            <returns>適当と思われるEncodingオブジェクト。
+            判断できなかった時はnull。</returns>
+        </member>
+        <member name="M:Plugin.Util.CheckInvalidFileNameChar(System.String)">
+            <summary>
+            ファイル名に使用できない文字を検出し、'_'に変換して返します。
+            </summary>
+            <param name="str">チェックする文字列</param>
+            <returns></returns>
+        </member>
+        <member name="M:Plugin.Util.CheckInvalidPathChar(System.String)">
+            <summary>
+            パス名に使用できない文字を検出し、'_'に変換して返します。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Plugin.Util.CatchError(System.String,System.String,System.String,System.Exception,System.String[])">
+            <summary>
+            エラー発生時に、メッセージボックスを表示するとともにコンソールを書く命令
+            全クラスで使用
+            </summary>
+            <param name="project">発生プロジェクト</param>
+            <param name="classname">発生クラス</param>
+            <param name="component">発生メソッドもしくはプロパティ</param>
+            <param name="error_mes">エラーメッセージ</param>
+        </member>
+        <member name="M:Plugin.RowProperty.Recount(System.Double)">
+            <summary>
+            プロパティの値を再集計する
+            </summary>
+        </member>
+        <member name="P:Plugin.RowProperty.Value">
+            <summary>
+            このプロパティの値を取得または設定する
+            </summary>
+        </member>
+        <member name="P:Plugin.RowProperty.Color">
+            <summary>
+            ラベルの色を表示する
+            </summary>
+        </member>
+        <member name="P:Plugin.RowProperty.ShortcutKeys">
+            <summary>
+            ショートカットキーを取得または設定します。
+            </summary>
+        </member>
+        <member name="P:Plugin.RowProperty.TotalSec">
+            <summary>
+            ラベルの累計時間(秒)を取得する
+            </summary>
+        </member>
+        <member name="P:Plugin.RowProperty.Percent">
+            <summary>
+            ラベルの割合を取得する
+            </summary>
+        </member>
+        <member name="P:Plugin.RowProperty.Count">
+            <summary>
+            出現回数を表示する
+            </summary>
+        </member>
+        <member name="P:Plugin.RowProperty.Avg">
+            <summary>
+            1ラベル当たりの平均時間長(秒)を取得する。
+            </summary>
+        </member>
+        <member name="P:Plugin.RowProperty.SD">
+            <summary>
+            標準偏差を取得する。
+            </summary>
+        </member>
+        <member name="T:Plugin.IPluginHost">
+            <summary>
+            プラグインのホストで実装するインタフェース
+            </summary>
+        </member>
+        <member name="M:Plugin.IPluginHost.MoviePlay">
+            <summary>
+            動画を再生します。
+            </summary>
+        </member>
+        <member name="M:Plugin.IPluginHost.MoviePause">
+            <summary>
+            動画を一時停止します。
+            </summary>
+        </member>
+        <member name="M:Plugin.IPluginHost.MovieStop">
+            <summary>
+            動画を停止します。
+            </summary>
+        </member>
+        <member name="M:Plugin.IPluginHost.TimeToLoc(System.Double)">
+            <summary>
+            時間からfieldpanel上のX座標を計算して返す
+            </summary>
+            <param name="time">変換したい時間(秒)</param>
+            <returns>計算されたX座標</returns>
+        </member>
+        <member name="M:Plugin.IPluginHost.TimeToValue(System.Double)">
+            <summary>
+            時間からtrackbar1の値を計算して返す
+            </summary>
+            <param name="time">変換したい時間(秒)</param>
+            <returns>計算された値</returns>
+        </member>
+        <member name="M:Plugin.IPluginHost.LocToTime(System.Int32)">
+            <summary>
+            fieldpanel上のX座標から対応する動画の時間を計算して返す
+            </summary>
+            <param name="location">fieldpanel上のX座標</param>
+            <returns>対応する動画の時間(秒)</returns>
+        </member>
+        <member name="M:Plugin.IPluginHost.LocToValue(System.Int32)">
+            <summary>
+            fieldpanel上のX座標から対応するtrackbar1の値を計算して返す
+            </summary>
+            <param name="location">fieldpanel上のX座標</param>
+            <returns>trackbarの値</returns>
+        </member>
+        <member name="M:Plugin.IPluginHost.UpdateFieldPanel">
+            <summary>
+            fieldpanel上のDataRowsの再配置を行う
+            </summary>
+        </member>
+        <member name="M:Plugin.IPluginHost.GetMenuItemCopy(System.String)">
+            <summary>
+            fieldpanelのMenuItemのコピーを生成して返す
+            </summary>
+            <param name="itemname">コピーしたいItemの名前</param>
+            <returns>コピーしたItem</returns>
+        </member>
+        <member name="M:Plugin.IPluginHost.ShowPropertyDialog(Plugin.DataRow)">
+            <summary>
+            PropertyDialogを表示します。
+            </summary>
+        </member>
+        <member name="M:Plugin.IPluginHost.AddRowToControl(System.Windows.Forms.TextBox,System.Windows.Forms.Panel)">
+            <summary>
+            DataRowのタイトルとパネルをfieldpanelのコントロールに追加します。
+            </summary>
+            <param name="title">行のタイトルを表示するtextbox</param>
+            <param name="basepanel">アノテーションを配置するパネル</param>
+        </member>
+        <member name="M:Plugin.IPluginHost.RemoveRowFromControl(System.Windows.Forms.TextBox,System.Windows.Forms.Panel)">
+            <summary>
+            DataRowのタイトルとパネルをfieldpanelのコントロールから取り除きます。
+            </summary>
+            <param name="title"></param>
+            <param name="basepanel"></param>
+        </member>
+        <member name="M:Plugin.IPluginHost.SuspendLayoutAll">
+            <summary>
+            IPluginHostのフォーム、コントロール全てをSuspendLayoutします。
+            </summary>
+        </member>
+        <member name="M:Plugin.IPluginHost.ResumeLayoutAll">
+            <summary>
+            IPluginHostのフォーム、コントロール全てをResumeLayoutします。
+            </summary>
+        </member>
+        <member name="M:Plugin.IPluginHost.HistoryAdd(Plugin.History)">
+            <summary>
+            新しくHistoryを追加します
+            </summary>
+            <param name="history">新しく追加するhistory</param>
+        </member>
+        <member name="M:Plugin.IPluginHost.HistoryRemove(Plugin.History)">
+            <summary>
+            Historyを削除します
+            </summary>
+            <param name="history">削除するHistory</param>
+        </member>
+        <member name="M:Plugin.IPluginHost.GetText(System.String)">
+            <summary>
+            テキストデータセットから指定されたID名に対応するテキストを取得します。
+            </summary>
+            <param name="name">ラベルのID名</param>
+            <returns>対応するテキスト</returns>
+        </member>
+        <member name="P:Plugin.IPluginHost.FieldStartTime">
+            <summary>
+            fieldpanelに表示されている時間(秒)の左端を設定または取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.FieldEndTime">
+            <summary>
+            fieldpanelに表示されている時間(秒)の右端を取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.MovieCurrentTime">
+            <summary>
+            動画の現在位置(秒)を取得または設定します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.Duration">
+            <summary>
+            全体時間を取得または設定します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.PixelPerSec">
+            <summary>
+            フィールドの1秒間の幅(ピクセル)を取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.IsLabelLocked">
+            <summary>
+            ラベルがロックされているかを取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.DataRows">
+            <summary>
+            アノテーションデータ(DataRow)のリストを取得します。
+            !!!注意!!!
+            Removeはしないで下さい。
+            削除したい場合は削除したいDataRowのDisposeメソッドを
+            実行することで自動的にRemoveされます。
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.FieldWidth">
+            <summary>
+            fieldpanelのwidthを取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.MouseLineLocationX">
+            <summary>
+            現在のマウス位置を表すラインのx座標を設定または取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.ContextMenuItems">
+            <summary>
+            IPluginHostのContextMenuに含まれる全ての項目を取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.MovieRate">
+            <summary>
+            動画の再生速度を取得します。(最大3倍速)
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.SelectPlayEndTime">
+            <summary>
+            動画の選択再生終了時間を設定または取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.ToolTip">
+            <summary>
+            Hostで扱われているToolTipオブジェクトを取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.SelectedEncoding">
+            <summary>
+            選択されている文字コードのエンコーディングオブジェクトを設定または取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.IDBConfig">
+            <summary>
+            データベースの接続設定を格納したオブジェクトを取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.IsRunning">
+            <summary>
+            再生中であるかどうかを示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.Plugins">
+            <summary>
+            プラグインのインスタンスのリストを取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.History">
+            <summary>
+            履歴情報のリストを取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IPluginHost.Config">
+            <summary>
+            コンフィグデータを取得します。
+            </summary>
+        </member>
+        <member name="E:Plugin.IPluginHost.TimelineChanged">
+            <summary>
+            タイムラインが変更された際に実行されるイベントハンドラ
+            ただし、動画再生時には発生しない。
+            </summary>
+        </member>
+        <member name="P:Plugin.IMovieHost.FileName">
+            <summary>
+            メディアフォームの名前を取得します
+            </summary>
+        </member>
+        <member name="P:Plugin.IMovieHost.FileFullPath">
+            <summary>
+            メディアフォームのパスを取得します
+            </summary>
+        </member>
+        <member name="P:Plugin.IMovieHost.Offset">
+            <summary>
+            メディアフォームのOFFSETを取得・設定します
+            </summary>
+        </member>
+        <member name="P:Plugin.IMovieHost.MovieCurrentTime">
+            <summary>
+            メディアの現在時刻を設定・取得します
+            </summary>
+        </member>
+        <member name="P:Plugin.IMovieHost.TrackBarValue">
+            <summary>
+            動画の再生速度を取得または設定する。
+            </summary>
+        </member>
+        <member name="M:Plugin.IDBConfig.SaveXML(System.String)">
+            <summary>
+            XMLファイルに設定情報を保存する。
+            </summary>
+            <param name="filename">保存するXMLファイル名</param>
+        </member>
+        <member name="M:Plugin.IDBConfig.SaveXML">
+            <summary>
+            デフォルトのXMLファイルに設定情報を保存する。
+            </summary>
+        </member>
+        <member name="M:Plugin.IDBConfig.GenerateConnectionString">
+            <summary>
+            MySqlConnectionで用いる接続用文字列を出力します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Plugin.IDBConfig.GenerateConnectionString(System.String)">
+            <summary>
+            MySqlConnectionで用いる接続用文字列を出力します。
+            </summary>
+            <param name="dbname">接続するDB名</param>
+            <returns></returns>
+        </member>
+        <member name="P:Plugin.IDBConfig.Host">
+            <summary>
+            データベース接続に用いるホスト名を取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IDBConfig.User">
+            <summary>
+            データベース接続に用いるユーザ名を取得します。
+            </summary>
+        </member>
+        <member name="P:Plugin.IDBConfig.Pass">
+            <summary>
+            データベース接続に用いるユーザ名を取得します。
+            </summary>
+        </member>
+    </members>
+</doc>

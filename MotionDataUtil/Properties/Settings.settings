@@ -1,0 +1,51 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MotionDataUtil.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="RearrangeSphereErrorStr" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">球を選択してください</Value>
+    </Setting>
+    <Setting Name="InternalDivisionPointErrorStr" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">同種の二つのオブジェクトを選択してください</Value>
+    </Setting>
+    <Setting Name="Script" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">スクリプト</Value>
+    </Setting>
+    <Setting Name="Run" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">実行</Value>
+    </Setting>
+    <Setting Name="ClearResult" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">結果をクリア</Value>
+    </Setting>
+    <Setting Name="RunResult" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">実行結果</Value>
+    </Setting>
+    <Setting Name="CallHistory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">呼び出し履歴</Value>
+    </Setting>
+    <Setting Name="Clear" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">クリア</Value>
+    </Setting>
+    <Setting Name="MotionDataUtilityForm_SplitMain_SplitterDistance" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">286</Value>
+    </Setting>
+    <Setting Name="ClearHistory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">履歴のクリア</Value>
+    </Setting>
+    <Setting Name="NoUseReturnValue" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">戻り値を用いない</Value>
+    </Setting>
+    <Setting Name="checkNoUseReturnValue" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="File" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ファイル(&amp;F)</Value>
+    </Setting>
+    <Setting Name="ScriptBoardTitle" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Script Board</Value>
+    </Setting>
+    <Setting Name="MotionDataUtilityTitle" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Motion Data Utility</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,72 @@
+﻿(* this is comment *)
+(* the comment whose first word is enclosed by "*" is a setting *)
+
+(* specify first rule *)
+(* *START* source *)
+
+(* specify namescape and using list *)
+(* *NAMESPACE* LLParserGenerator *)
+(* *USING* System *)
+(* *USING* System.Text *)
+(* *USING* System.IO *)
+(* *USING* System.Collections.Generic *)
+
+(* the name of the class which is to be created *)
+(* *OUTPUTCLASS* ScriptParserParser *)
+
+(* the name of the class whose instances are input data *)  
+(* *INPUTCLASS* GeneratorLexElement *)
+
+(* type of input class, either struct or class *)
+(* *INPUTCLASSTYPE* struct *)
+
+(* the enum type which is a member of input class with the name of 'Type' *)
+(* *INPUTENUM* GeneratorLexType *)
+
+(* prefix and suffix of parse method; these are default. (value of suffix is empty string) *)
+(* *PARSEMETHODPREFIX* Parse *)
+(* *PARSEMETHODSUFFIX* *)
+
+(* prefix and suffix of return method; these are default. *)
+(* *RETURNMETHODPREFIX* Return *)
+(* *RETURNMETHODSUFFIX* *)
+
+(* accessibility of methods *)
+(* *PARSEMETHODACCESSIBILITY* protected *)
+(* *RETURNMETHODACCESSIBILITY* protected *)
+
+(* prefix and suffix of return class; these are default *)
+(* *RETURNCLASSPREFIX* *)
+(* *RETURNCLASSSUFFIX* Element *)
+
+(* type of return class, either struct or class *)
+(* *RETURNCLASSTYPE* class *)
+
+(* for convenience, marks themselves can be used as terminal words instead of the names of those *)
+(* the first setting is that  the terminal word ";" means same as the terminal word "Semicolon" *)
+(* *TERMINAL* ; Semicolon *)
+(* *TERMINAL* = Equal *)
+(* *TERMINAL* ( OpenPar *)
+(* *TERMINAL* ) ClosePar *)
+(* *TERMINAL* { OpenBrace *)
+(* *TERMINAL* } CloseBrace *)
+(* *TERMINAL* [ OpenBracket *)
+(* *TERMINAL* ] CloseBracket *)
+(* *TERMINAL* | VSlash *)
+(* *TERMINAL* , Comma *)
+
+(* this means the rule 'source' returns the class "SourceElement" ((RETURNCLASSPREFIX)+"Source"+(RETURNCLASSSUFFIX)) *)
+(* this is same as the default setting;  "source" turns into "Source" automatically *)
+(* *RETURNS* source Source *)
+
+(* followings are EBNF rules *)
+source = { definition | "Comment" } ;
+definition = 'nonterminal' , "=", expressions , ";" ;
+expressions = selection ;
+selection = elements , { '|' , elements } ; 
+elements = element , { ',' , element } ;
+element = repeat | option | group | literal ;
+repeat = '{' , expressions , '}' ;
+option = '[' , expressions , ']' ;
+group = '(' , expressions , ')' ;
+literal = 'terminal' | 'nonterminal' ;

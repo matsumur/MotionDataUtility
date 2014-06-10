@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{91E8DAC4-99AA-4929-87A7-9668B04FFD18}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MotionDataUtil</RootNamespace>
+    <AssemblyName>MotionDataUtil</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ManifestCertificateThumbprint>8A81738C8AB619D6BBE0DD2668F6BF9164EBC681</ManifestCertificateThumbprint>
+    <ManifestKeyFile>MotionDataUtil_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ApplicationIcon>Resources\motion.ico</ApplicationIcon>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationVersion>1.1.4.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <StartupObject>
+    </StartupObject>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.DirectX.Direct3D, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\DirectX for Managed Code\1.0.2902.0\Microsoft.DirectX.Direct3D.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.Direct3DX, Version=1.0.2911.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.VisualC" />
+    <Reference Include="Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MotionDataHandler\Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Misc\ScriptFunctions.cs" />
+    <Compile Include="ChainedSettings.cs" />
+    <Compile Include="MotionDataUtilityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotionDataUtilityForm.Designer.cs">
+      <DependentUpon>MotionDataUtilityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MotionDataUtilPlugin.cs" />
+    <Compile Include="MotionDataViewerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotionDataViewerForm.Designer.cs">
+      <DependentUpon>MotionDataViewerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MotionDataUtilityForm.resx">
+      <DependentUpon>MotionDataUtilityForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MotionDataViewerForm.resx">
+      <DependentUpon>MotionDataViewerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScriptControlForm.resx">
+      <DependentUpon>ScriptControlForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeControllerPlayerForm.resx">
+      <DependentUpon>TimeControllerPlayerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SequenceViewerForm.resx">
+      <DependentUpon>SequenceViewerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="ScriptControlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScriptControlForm.Designer.cs">
+      <DependentUpon>ScriptControlForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeControllerPlayerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimeControllerPlayerForm.Designer.cs">
+      <DependentUpon>TimeControllerPlayerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceViewerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SequenceViewerForm.Designer.cs">
+      <DependentUpon>SequenceViewerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TSeqViewerPlugin.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MotionDataHandler\MotionDataHandler.csproj">
+      <Project>{3806A8B3-3F5B-4D73-A2EE-328FAB3C54B9}</Project>
+      <Name>MotionDataHandler</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows インストーラ 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\internalDivision.png" />
+    <None Include="Resources\lineClosest.png" />
+    <None Include="Resources\lineCylinder.png" />
+    <None Include="Resources\lineNearest.png" />
+    <None Include="Resources\linePoint.png" />
+    <None Include="Resources\cylinderContain.png" />
+    <None Include="Resources\cylinderLine.png" />
+    <None Include="Resources\lineHoriz.png" />
+    <None Include="Resources\lineTranslate.png" />
+    <None Include="Resources\angleLines.png" />
+    <None Include="Resources\areaPlanes.png" />
+    <None Include="Resources\directionLine.png" />
+    <None Include="Resources\lengthLines.png" />
+    <None Include="Resources\line_collision.png" />
+    <None Include="Resources\closeButton.png" />
+    <None Include="Resources\dustBoxButton.png" />
+    <None Include="Resources\graph.png" />
+    <None Include="Resources\label.png" />
+    <None Include="Resources\label_mini.png" />
+    <None Include="Resources\graph_mini.png" />
+    <None Include="Resources\hideView.png" />
+    <None Include="Resources\hideView16.png" />
+    <Content Include="Resources\motion.ico" />
+    <None Include="Resources\planePoint.png" />
+    <None Include="Resources\pointContain.png" />
+    <None Include="Resources\pointLine.png" />
+    <None Include="Resources\pointSphere.png" />
+    <None Include="Resources\positionRelative.png" />
+    <None Include="Resources\radiusCylinder.png" />
+    <None Include="Resources\radiusSphere.png" />
+    <None Include="Resources\position.png" />
+    <None Include="Resources\pointCoordinate.png" />
+    <None Include="Resources\obj_line.png" />
+    <None Include="Resources\obj_plane.png" />
+    <None Include="Resources\obj_point.png" />
+    <None Include="Resources\obj_sphere.png" />
+    <None Include="Resources\obj_cylinder.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\open.png" />
+    <None Include="Resources\pause.png" />
+    <None Include="Resources\run.png" />
+    <None Include="Resources\resetScale24.png" />
+    <None Include="Resources\script.png" />
+    <None Include="Resources\newFile.png" />
+    <None Include="Resources\newButton.png" />
+    <None Include="Resources\zoomdown.png" />
+    <None Include="Resources\zoomup.png" />
+    <None Include="Resources\resetScale.png" />
+    <None Include="Resources\reorder.png" />
+    <None Include="Resources\tolarge.png" />
+    <Content Include="reverse.ico" />
+    <None Include="Resources\sphereContain.png" />
+    <None Include="Resources\spherePoint.png" />
+    <Content Include="tvs.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

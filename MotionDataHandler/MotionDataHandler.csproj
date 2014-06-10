@@ -1,0 +1,499 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3806A8B3-3F5B-4D73-A2EE-328FAB3C54B9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MotionDataHandler</RootNamespace>
+    <AssemblyName>MotionDataHandler</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.DirectX.Direct3D, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\DirectX for Managed Code\1.0.2902.0\Microsoft.DirectX.Direct3D.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.Direct3DX, Version=1.0.2911.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.VisualC" />
+    <Reference Include="Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Misc\BijectiveDictionary.cs" />
+    <Compile Include="Misc\ColorEx.cs" />
+    <Compile Include="Misc\DialogOKMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc\DialogOKMessage.Designer.cs">
+      <DependentUpon>DialogOKMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc\DialogSetSelectRange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc\DialogSetSelectRange.Designer.cs">
+      <DependentUpon>DialogSetSelectRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc\DialogOKDataGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc\DialogOKDataGrid.Designer.cs">
+      <DependentUpon>DialogOKDataGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc\CollectionEx.cs" />
+    <Compile Include="Misc\DialogSimpleSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc\DialogSimpleSelect.Designer.cs">
+      <DependentUpon>DialogSimpleSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc\ErrorLogger.cs" />
+    <Compile Include="Misc\IDataChanged.cs" />
+    <Compile Include="Misc\IPluginHostChangedEventArgs.cs" />
+    <Compile Include="Misc\ListViewItemComparer.cs" />
+    <Compile Include="Misc\PathEx.cs" />
+    <Compile Include="Misc\ProcParam.cs" />
+    <Compile Include="Misc\ProgressInformation.cs" />
+    <Compile Include="Misc\ChainedSettings.cs" />
+    <Compile Include="Misc\StringEventArgs.cs" />
+    <Compile Include="Misc\TimeSelectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Misc\TimeSelectionControl.designer.cs">
+      <DependentUpon>TimeSelectionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc\ITimeInterval.cs" />
+    <Compile Include="Misc\LockDisposable.cs" />
+    <Compile Include="Misc\VectorEx.cs" />
+    <Compile Include="Motion\DefaultOperations\CreateObjectOperation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Motion\DefaultOperations\EditObjectOperation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Motion\DefaultOperations\GeneralOperation.cs" />
+    <Compile Include="Motion\DefaultOperations\OutputSequenceOperation.cs" />
+    <Compile Include="Motion\DialogMotionOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Motion\DialogMotionOperation.Designer.cs">
+      <DependentUpon>DialogMotionOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Motion\IMotionObjectInfoReadable.cs" />
+    <Compile Include="Motion\MotionFieldState.cs" />
+    <Compile Include="Misc\MouseState.cs" />
+    <Compile Include="Misc\RangeSet.cs" />
+    <Compile Include="Misc\StreamEx.cs" />
+    <Compile Include="Misc\WeakCollection.cs" />
+    <Compile Include="Motion\GeometryCalc.cs" />
+    <Compile Include="Motion\MotionDataSet.cs" />
+    <Compile Include="Motion\MotionFrame.cs" />
+    <Compile Include="Motion\MotionObject.cs" />
+    <Compile Include="Motion\MotionObjectInfo.cs" />
+    <Compile Include="Motion\Old\MotionDataFrame.cs" />
+    <Compile Include="Motion\Old\MotionDataHeader.cs" />
+    <Compile Include="Motion\Old\MotionDataObject.cs" />
+    <Compile Include="Motion\Old\MotionDataSet.cs" />
+    <Compile Include="Motion\Operation\MotionOperation.cs" />
+    <Compile Include="Motion\Operation\OperationMenuCreator.cs" />
+    <Compile Include="Motion\ReadOnlyMotionObjectInfo.cs" />
+    <Compile Include="Script\DefaultFunctions\Functions.cs" />
+    <Compile Include="Script\Parse\LexicalElement.cs" />
+    <Compile Include="Script\Parse\GenericLexParser.cs" />
+    <Compile Include="Script\Parse\LexParser.cs" />
+    <Compile Include="Script\Parse\Utilities.cs" />
+    <Compile Include="Script\Parse\ScriptParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Script\Parse\ScriptParserBase.cs" />
+    <Compile Include="Script\Parse\SyntaxElement.cs" />
+    <Compile Include="Script\Parse\VariableAccessor.cs" />
+    <Compile Include="Script\RefScriptVariable.cs" />
+    <Compile Include="Script\ScriptConsole.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Script\ScriptVariable.cs" />
+    <Compile Include="Sequence\BorderSelectControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Sequence\BorderSelectControl.Designer.cs">
+      <DependentUpon>BorderSelectControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sequence\DefaultOperations\OperationCloneSequence.cs" />
+    <Compile Include="Sequence\DialogCloseSequenceViewers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sequence\DialogCloseSequenceViewers.Designer.cs">
+      <DependentUpon>DialogCloseSequenceViewers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sequence\DialogLabelColorSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sequence\DialogLabelColorSet.Designer.cs">
+      <DependentUpon>DialogLabelColorSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sequence\DialogSequenceOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sequence\DialogSequenceOperation.Designer.cs">
+      <DependentUpon>DialogSequenceOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sequence\LabelJumpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sequence\LabelJumpForm.Designer.cs">
+      <DependentUpon>LabelJumpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sequence\LabelReplaceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sequence\LabelReplaceControl.Designer.cs">
+      <DependentUpon>LabelReplaceControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sequence\LabelSequenceSelectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sequence\LabelSequenceSelectControl.Designer.cs">
+      <DependentUpon>LabelSequenceSelectControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc\CSV.cs" />
+    <Compile Include="Misc\DialogOKCancel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc\DialogOKCancel.Designer.cs">
+      <DependentUpon>DialogOKCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc\Algorithms.cs" />
+    <Compile Include="Misc\TimeController.cs" />
+    <Compile Include="Motion\DxCamera.cs" />
+    <Compile Include="DataIO\EVaRTTrc.cs" />
+    <Compile Include="Sequence\DialogSequenceBorder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sequence\DialogSequenceBorder.Designer.cs">
+      <DependentUpon>DialogSequenceBorder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataIO\FrameConverter.cs" />
+    <Compile Include="Sequence\ICSLabelSequence.cs" />
+    <Compile Include="Misc\MinMaxTester.cs" />
+    <Compile Include="Motion\MotionDataObjectSelectList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Motion\MotionDataObjectSelectList.Designer.cs">
+      <DependentUpon>MotionDataObjectSelectList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Motion\ObjectExistenceView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Motion\ObjectExistenceView.Designer.cs">
+      <DependentUpon>ObjectExistenceView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Motion\RenderPrimitive.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Motion\MotionDataObjectListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Motion\MotionDataObjectListView.Designer.cs">
+      <DependentUpon>MotionDataObjectListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Motion\MotionDataViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Motion\MotionDataViewer.Designer.cs">
+      <DependentUpon>MotionDataViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataIO\PhaseSpaceCsv.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Sequence\DefaultOperations\OperationLabelBoundary.cs" />
+    <Compile Include="Sequence\DefaultOperations\OperationLabelSequence.cs" />
+    <Compile Include="Sequence\DefaultOperations\OperationNumericSequence.cs" />
+    <Compile Include="Sequence\SequenceViewerInnerComponents.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Sequence\SequenceViewerInnerComponents.Designer.cs">
+      <DependentUpon>SequenceViewerInnerComponents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sequence\ViewerFunction\DefaultViewerFunctions.cs" />
+    <Compile Include="Sequence\ViewerFunction\ViewerFunction.cs" />
+    <Compile Include="Sequence\SequenceIndexSelectControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Sequence\SequenceIndexSelectControl.Designer.cs">
+      <DependentUpon>SequenceIndexSelectControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sequence\TimeSeriesValuesCalculation.cs" />
+    <Compile Include="Sequence\TargetSequenceIndexControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sequence\TargetSequenceIndexControl.Designer.cs">
+      <DependentUpon>TargetSequenceIndexControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sequence\Operation\SequenceOperation.cs" />
+    <Compile Include="Sequence\SequenceData.cs" />
+    <Compile Include="Misc\TimePlayer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Misc\TimePlayer.Designer.cs">
+      <DependentUpon>TimePlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sequence\LabelingBorders.cs" />
+    <Compile Include="Sequence\TimeSeriesValues.cs" />
+    <Compile Include="Sequence\SequenceView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sequence\SequenceView.Designer.cs">
+      <DependentUpon>SequenceView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc\WaitForForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc\WaitForForm.Designer.cs">
+      <DependentUpon>WaitForForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sequence\SequenceViewerController.cs">
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Misc\DialogOKDataGrid.resx">
+      <DependentUpon>DialogOKDataGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc\DialogOKMessage.resx">
+      <DependentUpon>DialogOKMessage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc\DialogSetSelectRange.resx">
+      <DependentUpon>DialogSetSelectRange.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc\DialogSimpleSelect.resx">
+      <DependentUpon>DialogSimpleSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc\TimeSelectionControl.resx">
+      <DependentUpon>TimeSelectionControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Motion\DialogMotionOperation.resx">
+      <DependentUpon>DialogMotionOperation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sequence\DialogCloseSequenceViewers.resx">
+      <DependentUpon>DialogCloseSequenceViewers.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sequence\DialogLabelColorSet.resx">
+      <DependentUpon>DialogLabelColorSet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sequence\DialogSequenceOperation.resx">
+      <DependentUpon>DialogSequenceOperation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sequence\LabelJumpForm.resx">
+      <DependentUpon>LabelJumpForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sequence\LabelReplaceControl.resx">
+      <DependentUpon>LabelReplaceControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sequence\LabelSequenceSelectControl.resx">
+      <DependentUpon>LabelSequenceSelectControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc\DialogOKCancel.resx">
+      <DependentUpon>DialogOKCancel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sequence\DialogSequenceBorder.resx">
+      <DependentUpon>DialogSequenceBorder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Motion\MotionDataObjectListView.resx">
+      <DependentUpon>MotionDataObjectListView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Motion\MotionDataObjectSelectList.resx">
+      <DependentUpon>MotionDataObjectSelectList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Motion\MotionDataViewer.resx">
+      <DependentUpon>MotionDataViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Motion\ObjectExistenceView.resx">
+      <DependentUpon>ObjectExistenceView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sequence\SequenceViewerInnerComponents.resx">
+      <DependentUpon>SequenceViewerInnerComponents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sequence\TargetSequenceIndexControl.resx">
+      <DependentUpon>TargetSequenceIndexControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc\TimePlayer.resx">
+      <DependentUpon>TimePlayer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sequence\SequenceView.resx">
+      <DependentUpon>SequenceView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc\WaitForForm.resx">
+      <DependentUpon>WaitForForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\tvs.ico" />
+    <None Include="Resources\hideView.png" />
+    <Content Include="Script\Parse\ScriptParser.txt" />
+    <None Include="Resources\zoomdown.png" />
+    <None Include="Resources\zoomup.png" />
+    <None Include="Resources\downTriangleTab.png" />
+    <None Include="Resources\unzoomTimeBar.png" />
+    <None Include="Resources\zoomTimeBar.png" />
+    <None Include="Resources\setLabel.png" />
+    <None Include="Resources\stackGraph.png" />
+    <None Include="Resources\closeButton.png" />
+    <None Include="Resources\addBorderHere.png" />
+    <None Include="Resources\blueViewSmall.png" />
+    <None Include="Resources\blueView.png" />
+    <None Include="Resources\focusButton.png" />
+    <None Include="Resources\triangleButton.png" />
+    <None Include="Resources\script.ico" />
+    <None Include="Resources\unlock.png" />
+    <None Include="Resources\lock.png" />
+    <None Include="Resources\lineAdd.png" />
+    <None Include="Resources\question.png" />
+    <None Include="Resources\reverse.png" />
+    <None Include="Resources\pointSphere.png" />
+    <None Include="Resources\pointLine.png" />
+    <None Include="Resources\pointCoordinate.png" />
+    <None Include="Resources\pointContain.png" />
+    <None Include="Resources\planePoint.png" />
+    <None Include="Resources\lineTranslate.png" />
+    <None Include="Resources\linePoint.png" />
+    <None Include="Resources\lineNearest.png" />
+    <None Include="Resources\lineHoriz.png" />
+    <None Include="Resources\lineCylinder.png" />
+    <None Include="Resources\lineClosest.png" />
+    <None Include="Resources\line_collision.png" />
+    <None Include="Resources\lengthLines.png" />
+    <None Include="Resources\internalDivision.png" />
+    <None Include="Resources\directionLine.png" />
+    <None Include="Resources\cylinderLine.png" />
+    <None Include="Resources\cylinderContain.png" />
+    <None Include="Resources\areaPlanes.png" />
+    <None Include="Resources\angleLines.png" />
+    <None Include="Resources\spherePoint.png" />
+    <None Include="Resources\sphereContain.png" />
+    <None Include="Resources\radiusSphere.png" />
+    <None Include="Resources\radiusCylinder.png" />
+    <None Include="Resources\positionRelative.png" />
+    <None Include="Resources\position.png" />
+    <None Include="Resources\measure.jpg" />
+    <None Include="Resources\SequenceViewer.png" />
+    <None Include="Resources\labelrow.jpg" />
+    <None Include="Resources\white.png" />
+    <None Include="Resources\circle_bar.png" />
+    <None Include="Resources\repeat.png" />
+    <None Include="Resources\graph.png" />
+    <None Include="Resources\label.png" />
+    <None Include="Resources\obj_plane.png" />
+    <None Include="Resources\obj_line.png" />
+    <None Include="Resources\obj_cylinder.png" />
+    <None Include="Resources\obj_sphere.png" />
+    <None Include="Resources\obj_point.png" />
+    <None Include="Resources\resetScale.png" />
+    <None Include="Resources\L.png" />
+    <None Include="Resources\W.png" />
+    <None Include="Resources\R.png" />
+    <None Include="Resources\M.png" />
+    <None Include="Resources\reorder.png" />
+    <None Include="Resources\hide.png" />
+    <None Include="Resources\darrow.png" />
+    <None Include="Resources\uarrow.png" />
+    <None Include="Resources\tosmall.png" />
+    <None Include="Resources\tolarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

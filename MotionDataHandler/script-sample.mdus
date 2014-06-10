@@ -1,0 +1,167 @@
+// comment
+/* comment2 */
+/* comment3
+*/
+// test1
+/**/
+// test2
+/*/*/
+// test3
+/*/
+/*/
+// test4
+/*
+*
+/
+*/
+print("Hello, World!" /* hogehoge */);
+println("newline"//);
+);
+"syntax check";
+;;;;;;;;;;;;;;;;;;;;;
+"hgoe";1;1.5;-1;+1;00;"";true;false;
+for(;;){
+break;
+}
+var p = 0;
+for(p=0;p!=0;p+=p);
+while(0);
+while(0){}
+do ; while(0);
+do {} while(0);
+foreach(p in {});
+foreach(p in {}){}
+foreach(var q in {});
+if(0){return;}
+if(0){return 0;}
+0+0;0-0;0*0;0/1;0%1;
+0<0;0>0;0<=0;0>=0;0==0;0!=0;
+0?0:0;
+p=0;p+=0;p-=0;p*=0;p/=1;p%=1;
+p++;p--;++p;--p;
+p={0};p[0];p[p[0]];
+p[0]=0;!p;p||p;p&&p;
+var q = func(var p){return 0;};
+
+println(1 == 1, 1 != 2, 2 < 5,5 > 2, "3" < 7, "7" > 3, {1,2,3} == {1,2,3}, true != false, !false);
+println(1 != 1, 1 == 2, 2 > 5, 5 < 2, "3" > 7, "7" < 3, {1,2,3} != { 1,2,3}, true == false, !true);
+println({1,2,3} == {1,2}, {1,2} == {1,2,3}, {{1,2}} == {{1},{2}}, {{}} == {}, {1,2,3} == {1,2,3,{}}, {true} == {false});
+println(1 == {1}, 1 != {1}, {1} == 1, {1} != 1, {{1}} == {1}, {{1}} != {1}, {1,{}} == {{},1});
+
+var v = 100; println(v,100);
+v = 200; println(v,200);
+v = "hoge"; println(v,"hoge");
+v = 1.5; println(v,1.5);
+v = -5.3; println(v,-5.3);
+v = {1, 2, 4}; println(v,{1,2,4});
+v = ToNumber(v); println(v,3);
+v = true; println(v,true);
+v = false; println(v,false);
+var x = 3, y = 4;
+var z, w = {x, y};
+var a = {{{{{}}}}};
+println(a);
+var b = 10 + 5 * 2;
+var c = b / 4 - 3;
+var d = 5 % c;
+println (20 == b,2 == c,1 == d);
+var a1 = 1 - 10 - 100 - 1000;
+var a2 = 1 * 2 + 3 * 4 - 5 * 6;
+var a3 = (1+2) * 3;
+var a4 = 1 - -10;
+var a5 = 1 + +10;
+println(a1==-1109, a2 == -16, a3 == 9, a4 == 11, a5 == 11);
+var a6 = 1 ? 10 : 100;
+var a7 = 0 ? 10 : 100;
+var a8 = 1 ? 0 ? 10 : 100 : 1000;
+var a9 = 1 == 1 ? 10 : 100;
+var a10 = 1 ? 1 == 1 ? 10 : 100 : 1 == 0 ? 1000 : 10000;
+println(a6==10,a7==100,a8==100,a9==10,a10==10);
+
+var b1 = 15;
+var b2 = b1++;
+
+var b3 = 15;
+var b4 = b3--;
+var b5 = 15;
+var b6 = ++b5;
+var b7 = 15;
+var b8 = --b7;
+var b9 = 10;
+b9 += 100;
+b9 -= 1000;
+var b10 = 1000;
+b10 *= 10;
+b10 /= 5;
+println(b1==16,b2==15,b3==14,b4==15,b5==16,b6==16,b7==14,b8==14, b9==-890, b10==2000);
+if(1) println(true);
+if(0) println(false);else println(true);
+if(1) println(true);else println(false);
+if(1){println(true);}else{println(false);}
+if(0){println(false);}else{println(true);}
+var c1, c2 = 0;
+for(c1 = 100; c1>50; c1-=4) {
+  c2++;
+}
+println(c1 == 48, c2==13);
+var c3=0, c4 = 0;
+while(c3 < 10) {
+c4 += c3;
+c3++;
+}
+println(c3==10,c4==45);
+var c5 = 10, c6 = 10;
+do{ c5 = 0; } while ( c6 == 0 );
+do{ c6--; } while ( c6 > 5 );
+println(c5==0,c6==5);
+var  c7 = { 1,3,5,7,9}, c8 = 0;
+foreach(var i in c7) {
+c8 += i;
+}
+println(c7=={1,3,5,7,9},c8 == 25);
+var c9=10, c10=0;
+foreach(c9 in {1,2,3,4,5}){
+c10 += c9;
+}
+println(c9==10,c10==15);
+var c11 = 0;
+while(true) {
+if(c11>10){break;}
+c11 += 7;
+}
+var c12 = 0, c13 = 0;
+while(c12 < 10) {
+c12++;
+if(c12 < 5) {
+c13 += 10;
+continue;
+}
+c13 += 100;
+}
+println(c12 == 10, c13 == 640 );
+var c14 = 5, c15=5;
+for(var i = 0; i < 10; i++){
+c14 = i;
+break;
+c14=100;
+}
+for(var i = 0; i < 10; i++){
+c15 = i;
+continue;
+c15=100;
+}
+println(c14==0,c15==9);
+
+var c16 = 5, c17=5;
+foreach(var i in {0,1,2,3,4,5,6,7,8,9}) {
+    c16 = i;
+    break;
+    c16=100;
+}
+foreach(var i in {0,1,2,3,4,5,6,7,8,9}) {
+    c17 = i;
+    continue;
+    c17=100;
+}
+println(c16==0,c17==9);
+
